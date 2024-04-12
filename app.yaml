@@ -1,0 +1,5 @@
+---
+kind: wasmer.io/App.v0
+name: wasix-axum-example
+app_id: da_VnP7IptBUqDK
+package: wasmer/wasix-axum-example@0.1.3

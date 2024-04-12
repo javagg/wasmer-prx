@@ -1,0 +1,42 @@
+[package]
+name = "wa-axum"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+async-trait = "0.1"
+anyhow = "1.0"
+thiserror = "1.0"
+log = "0.4.17"
+tracing = { version = "0.1" }
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+tonic = { version = "0.9", features = ["tls"] }
+prost = "0.11"
+tokio-stream = "0.1.14"
+tower = "0.4.13"
+http-body = "0.4.5"
+tower-http = { version = "0.4.3", features = ["util", "add-extension"] }
+rustls-pemfile = "1.0.3"
+
+axum = { version = "=0.6.9", features = ["tokio", "ws"] }
+#axum_extra = "0.9"
+tokio = { version = "=1.24.2", default-features = false, features = ["full"] }
+parking_lot = { version = "=0.12.1", features = ["nightly"] }
+
+# HTTP/3 experimental support
+h3 = { version="0.0.2", optional = true }
+h3-quinn = { version="0.0.3", optional = true }
+quinn = { version = "0.10", default-features = false, features = ["tls-rustls", "ring", "runtime-tokio"], optional = true  }
+futures-channel = { version="0.3", optional = true}
+
+[patch.crates-io]
+rustls-native-certs = { git = "https://github.com/wasix-org/rustls-native-certs.git" }
+socket2 = { git = "https://github.com/wasix-org/socket2.git", branch = "v0.4.9" }
+tokio = { git = "https://github.com/wasix-org/tokio.git", branch = "epoll" }
+hyper = { git = "https://github.com/wasix-org/hyper.git", branch = "v0.14.27" }
+ring = { git = "https://github.com/wasix-org/ring.git", branch = "wasix" }
+rustls = { git = "https://github.com/wasix-org/rustls.git", branch = "v0.21.5" }
+hyper-rustls = { git = "https://github.com/wasix-org/hyper-rustls.git", branch = "v0.25.0" }
+#h2 = { git = "https://github.com/wasix-org/h2.git", branch = "v0.25.0" }
+tokio-rustls = { version = "0.24.1", git = "https://github.com/wasix-org/tokio-rustls.git", branch = "main" }
+libc = { git = "https://github.com/wasix-org/libc.git", branch = "master" }
